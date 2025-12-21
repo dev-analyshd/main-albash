@@ -19,9 +19,16 @@ export function ListingCard({ listing, index = 0 }: ListingCardProps) {
           {/* Image */}
           <div className="aspect-[4/3] relative overflow-hidden bg-secondary/30">
             <img
-              src={listing.images?.[0] || "/placeholder.svg?height=300&width=400&query=product"}
+              src={
+                listing.images && Array.isArray(listing.images) && listing.images.length > 0
+                  ? (typeof listing.images[0] === 'string' ? listing.images[0] : "/placeholder.jpg")
+                  : "/placeholder.jpg"
+              }
               alt={listing.title}
               className="w-full h-full object-cover transition-transform group-hover:scale-105"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "/placeholder.jpg"
+              }}
             />
             {/* Badges */}
             <div className="absolute top-3 left-3 flex gap-2">

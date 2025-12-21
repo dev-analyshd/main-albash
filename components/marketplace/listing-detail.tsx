@@ -260,8 +260,9 @@ export function ListingDetail({ listing }: ListingDetailProps) {
           {/* Seller */}
           {seller && (
             <Card className="mb-6">
-              <CardContent className="p-4">
-                <div className="flex items-center gap-4">
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-4">Seller Information</h3>
+                <div className="flex items-center gap-4 mb-4">
                   <Avatar className="h-12 w-12">
                     <AvatarImage src={seller.avatar_url || undefined} />
                     <AvatarFallback>{seller.full_name?.charAt(0) || "U"}</AvatarFallback>
@@ -272,21 +273,47 @@ export function ListingDetail({ listing }: ListingDetailProps) {
                       {seller.is_verified && (
                         <>
                           <Shield className="h-3 w-3 text-primary" />
-                          Verified {seller.role}
+                          Verified {seller.role || "Seller"}
                         </>
                       )}
                       <span className="flex items-center gap-1">
                         <Award className="h-3 w-3 text-chart-4" />
-                        {seller.reputation_score} pts
+                        {seller.reputation_score || 0} pts
                       </span>
                     </div>
                   </div>
-                  <Link href={`/profiles/${seller.id}`}>
-                    <Button variant="outline" size="sm" className="gap-2 bg-transparent">
-                      <MessageSquare className="h-4 w-4" />
-                      Contact
-                    </Button>
-                  </Link>
+                </div>
+
+                {/* Contact Options */}
+                <div className="space-y-3 border-t pt-4">
+                  <h4 className="font-medium text-sm">Contact Seller</h4>
+                  <div className="flex flex-col gap-2">
+                    {seller.email && (
+                      <a 
+                        href={`mailto:${seller.email}`}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary/50 hover:bg-secondary text-sm font-medium transition-colors"
+                      >
+                        <MessageSquare className="h-4 w-4" />
+                        Send Email
+                      </a>
+                    )}
+                    <Link href={`/dashboard/messages?to=${seller.id}`}>
+                      <Button variant="outline" className="w-full gap-2 bg-transparent" asChild>
+                        <a>
+                          <MessageSquare className="h-4 w-4" />
+                          Send Message
+                        </a>
+                      </Button>
+                    </Link>
+                    <Link href={`/profiles/${seller.id}`}>
+                      <Button variant="outline" className="w-full gap-2 bg-transparent" asChild>
+                        <a>
+                          <ExternalLink className="h-4 w-4" />
+                          View Profile
+                        </a>
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </CardContent>
             </Card>

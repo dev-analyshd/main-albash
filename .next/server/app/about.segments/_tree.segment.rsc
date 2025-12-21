@@ -7,4 +7,4 @@
 :HL["/cOMMUNITY LEAD.png","image"]
 :HL["/nigerian-woman-professional-headshot.jpg","image"]
 :HL["/placeholder-user.jpg","image"]
-0:{"buildId":"keqqoxRWz1-_TlcBItNAV","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"about","paramType":null,"paramKey":"about","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"dUGn5JhkapBieZje6swXE","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"about","paramType":null,"paramKey":"about","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

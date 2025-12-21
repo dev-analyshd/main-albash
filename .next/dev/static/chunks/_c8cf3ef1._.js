@@ -3521,123 +3521,215 @@ function ListingDetail({ listing }) {
                             seller && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                 className: "mb-6",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
-                                    className: "p-4",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center gap-4",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Avatar"], {
-                                                className: "h-12 w-12",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarImage"], {
-                                                        src: seller.avatar_url || undefined
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                        lineNumber: 266,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
-                                                        children: seller.full_name?.charAt(0) || "U"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                        lineNumber: 267,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                lineNumber: 265,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex-1",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "font-semibold",
-                                                        children: seller.full_name || "Anonymous"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                        lineNumber: 270,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex items-center gap-2 text-sm text-muted-foreground",
-                                                        children: [
-                                                            seller.is_verified && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__["Shield"], {
-                                                                        className: "h-3 w-3 text-primary"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                                        lineNumber: 274,
-                                                                        columnNumber: 27
-                                                                    }, this),
-                                                                    "Verified ",
-                                                                    seller.role
-                                                                ]
-                                                            }, void 0, true),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "flex items-center gap-1",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$award$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Award$3e$__["Award"], {
-                                                                        className: "h-3 w-3 text-chart-4"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                                        lineNumber: 279,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    seller.reputation_score,
-                                                                    " pts"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                                lineNumber: 278,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                        lineNumber: 271,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                lineNumber: 269,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                href: `/profiles/${seller.id}`,
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                    variant: "outline",
-                                                    size: "sm",
-                                                    className: "gap-2 bg-transparent",
+                                    className: "p-6",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "font-semibold mb-4",
+                                            children: "Seller Information"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                            lineNumber: 264,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center gap-4 mb-4",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Avatar"], {
+                                                    className: "h-12 w-12",
                                                     children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__["MessageSquare"], {
-                                                            className: "h-4 w-4"
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarImage"], {
+                                                            src: seller.avatar_url || undefined
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                            lineNumber: 286,
-                                                            columnNumber: 23
+                                                            lineNumber: 267,
+                                                            columnNumber: 21
                                                         }, this),
-                                                        "Contact"
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
+                                                            children: seller.full_name?.charAt(0) || "U"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                            lineNumber: 268,
+                                                            columnNumber: 21
+                                                        }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 285,
-                                                    columnNumber: 21
+                                                    lineNumber: 266,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex-1",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "font-semibold",
+                                                            children: seller.full_name || "Anonymous"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                            lineNumber: 271,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-center gap-2 text-sm text-muted-foreground",
+                                                            children: [
+                                                                seller.is_verified && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__["Shield"], {
+                                                                            className: "h-3 w-3 text-primary"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                            lineNumber: 275,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        "Verified ",
+                                                                        seller.role || "Seller"
+                                                                    ]
+                                                                }, void 0, true),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "flex items-center gap-1",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$award$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Award$3e$__["Award"], {
+                                                                            className: "h-3 w-3 text-chart-4"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                            lineNumber: 280,
+                                                                            columnNumber: 25
+                                                                        }, this),
+                                                                        seller.reputation_score || 0,
+                                                                        " pts"
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                    lineNumber: 279,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                            lineNumber: 272,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                    lineNumber: 270,
+                                                    columnNumber: 19
                                                 }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                lineNumber: 284,
-                                                columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                        lineNumber: 264,
-                                        columnNumber: 17
-                                    }, this)
-                                }, void 0, false, {
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                            lineNumber: 265,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "space-y-3 border-t pt-4",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "font-medium text-sm",
+                                                    children: "Contact Seller"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                    lineNumber: 289,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex flex-col gap-2",
+                                                    children: [
+                                                        seller.email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                            href: `mailto:${seller.email}`,
+                                                            className: "inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary/50 hover:bg-secondary text-sm font-medium transition-colors",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__["MessageSquare"], {
+                                                                    className: "h-4 w-4"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                    lineNumber: 296,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                "Send Email"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                            lineNumber: 292,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                            href: `/dashboard/messages?to=${seller.id}`,
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                variant: "outline",
+                                                                className: "w-full gap-2 bg-transparent",
+                                                                asChild: true,
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__["MessageSquare"], {
+                                                                            className: "h-4 w-4"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                            lineNumber: 303,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        "Send Message"
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                    lineNumber: 302,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                lineNumber: 301,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                            lineNumber: 300,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                            href: `/profiles/${seller.id}`,
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                variant: "outline",
+                                                                className: "w-full gap-2 bg-transparent",
+                                                                asChild: true,
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$external$2d$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ExternalLink$3e$__["ExternalLink"], {
+                                                                            className: "h-4 w-4"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                            lineNumber: 311,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        "View Profile"
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                    lineNumber: 310,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                                lineNumber: 309,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                            lineNumber: 308,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                                    lineNumber: 290,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/components/marketplace/listing-detail.tsx",
+                                            lineNumber: 288,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
                                     lineNumber: 263,
                                     columnNumber: 15
@@ -3659,14 +3751,14 @@ function ListingDetail({ listing }) {
                                                     className: "h-5 w-5 text-primary"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 300,
+                                                    lineNumber: 327,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Token Information"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                            lineNumber: 299,
+                                            lineNumber: 326,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3680,7 +3772,7 @@ function ListingDetail({ listing }) {
                                                             children: "Token ID"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                            lineNumber: 305,
+                                                            lineNumber: 332,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3688,13 +3780,13 @@ function ListingDetail({ listing }) {
                                                             children: listing.token_id
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                            lineNumber: 306,
+                                                            lineNumber: 333,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 304,
+                                                    lineNumber: 331,
                                                     columnNumber: 19
                                                 }, this),
                                                 listing.contract_address && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3705,7 +3797,7 @@ function ListingDetail({ listing }) {
                                                             children: "Contract"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                            lineNumber: 310,
+                                                            lineNumber: 337,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -3718,19 +3810,19 @@ function ListingDetail({ listing }) {
                                                                     className: "h-3 w-3"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                                    lineNumber: 313,
+                                                                    lineNumber: 340,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                            lineNumber: 311,
+                                                            lineNumber: 338,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 309,
+                                                    lineNumber: 336,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3741,37 +3833,37 @@ function ListingDetail({ listing }) {
                                                             children: "Chain"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                            lineNumber: 318,
+                                                            lineNumber: 345,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: "Ethereum"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                            lineNumber: 319,
+                                                            lineNumber: 346,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 317,
+                                                    lineNumber: 344,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                            lineNumber: 303,
+                                            lineNumber: 330,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                    lineNumber: 298,
+                                    lineNumber: 325,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                lineNumber: 297,
+                                lineNumber: 324,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -3797,7 +3889,7 @@ function ListingDetail({ listing }) {
                                 children: "Description"
                             }, void 0, false, {
                                 fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                lineNumber: 331,
+                                lineNumber: 358,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -3805,7 +3897,7 @@ function ListingDetail({ listing }) {
                                 children: "Reviews"
                             }, void 0, false, {
                                 fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                lineNumber: 332,
+                                lineNumber: 359,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -3813,13 +3905,13 @@ function ListingDetail({ listing }) {
                                 children: "Details"
                             }, void 0, false, {
                                 fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                lineNumber: 333,
+                                lineNumber: 360,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/marketplace/listing-detail.tsx",
-                        lineNumber: 330,
+                        lineNumber: 357,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -3835,27 +3927,27 @@ function ListingDetail({ listing }) {
                                         children: listing.description
                                     }, void 0, false, {
                                         fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                        lineNumber: 339,
+                                        lineNumber: 366,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                    lineNumber: 338,
+                                    lineNumber: 365,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                lineNumber: 337,
+                                lineNumber: 364,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                            lineNumber: 336,
+                            lineNumber: 363,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/marketplace/listing-detail.tsx",
-                        lineNumber: 335,
+                        lineNumber: 362,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -3869,22 +3961,22 @@ function ListingDetail({ listing }) {
                                     children: "No reviews yet. Be the first to review!"
                                 }, void 0, false, {
                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                    lineNumber: 347,
+                                    lineNumber: 374,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                lineNumber: 346,
+                                lineNumber: 373,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                            lineNumber: 345,
+                            lineNumber: 372,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/marketplace/listing-detail.tsx",
-                        lineNumber: 344,
+                        lineNumber: 371,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -3903,7 +3995,7 @@ function ListingDetail({ listing }) {
                                                     children: "Category"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 356,
+                                                    lineNumber: 383,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3911,13 +4003,13 @@ function ListingDetail({ listing }) {
                                                     children: listing.categories?.name || "Uncategorized"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 357,
+                                                    lineNumber: 384,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                            lineNumber: 355,
+                                            lineNumber: 382,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3927,7 +4019,7 @@ function ListingDetail({ listing }) {
                                                     children: "Type"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 360,
+                                                    lineNumber: 387,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3935,13 +4027,13 @@ function ListingDetail({ listing }) {
                                                     children: listing.listing_type
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 361,
+                                                    lineNumber: 388,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                            lineNumber: 359,
+                                            lineNumber: 386,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3951,7 +4043,7 @@ function ListingDetail({ listing }) {
                                                     children: "Listed"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 364,
+                                                    lineNumber: 391,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3959,13 +4051,13 @@ function ListingDetail({ listing }) {
                                                     children: new Date(listing.created_at).toLocaleDateString()
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 365,
+                                                    lineNumber: 392,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                            lineNumber: 363,
+                                            lineNumber: 390,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3975,7 +4067,7 @@ function ListingDetail({ listing }) {
                                                     children: "Views"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 368,
+                                                    lineNumber: 395,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3983,40 +4075,40 @@ function ListingDetail({ listing }) {
                                                     children: listing.view_count || 0
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                                    lineNumber: 369,
+                                                    lineNumber: 396,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                            lineNumber: 367,
+                                            lineNumber: 394,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                    lineNumber: 354,
+                                    lineNumber: 381,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/marketplace/listing-detail.tsx",
-                                lineNumber: 353,
+                                lineNumber: 380,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/marketplace/listing-detail.tsx",
-                            lineNumber: 352,
+                            lineNumber: 379,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/marketplace/listing-detail.tsx",
-                        lineNumber: 351,
+                        lineNumber: 378,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/marketplace/listing-detail.tsx",
-                lineNumber: 329,
+                lineNumber: 356,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$marketplace$2f$checkout$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CheckoutDialog"], {
@@ -4034,7 +4126,7 @@ function ListingDetail({ listing }) {
                 }
             }, void 0, false, {
                 fileName: "[project]/components/marketplace/listing-detail.tsx",
-                lineNumber: 378,
+                lineNumber: 405,
                 columnNumber: 7
             }, this)
         ]

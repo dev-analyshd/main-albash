@@ -70,13 +70,39 @@ export default function NewListingPage() {
     const urls = fileArray.map((file) => URL.createObjectURL(file))
     setImages((prev) => [...prev, ...urls].slice(0, 5))
     setImageFiles((prev) => [...prev, ...fileArray].slice(0, 5))
-    
-    // Note: Images will be uploaded via NFT.storage during listing creation if tokenized,
-    // or stored as base64 strings in metadata for non-tokenized listings
   }
 
   const removeImage = (index: number) => {
     setImages((prev) => prev.filter((_, i) => i !== index))
+    setImageFiles((prev) => prev.filter((_, i) => i !== index))
+  }
+
+  const uploadImagesToStorage = async (userId: string): Promise<string[]> => {
+    const imageUrls: string[] = []
+    
+    for (const file of imageFiles) {
+      try {
+        const fileExt = file.name.split(".").pop()
+        const fileName = `${userId}/listings/${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`
+        
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from("listings")
+          .upload(fileName, file, { upsert: true })
+        
+        if (uploadError) {
+          console.warn("Image upload error:", uploadError)
+          continue
+        }
+        
+        const { data: { publicUrl } } = supabase.storage.from("listings").getPublicUrl(fileName)
+        imageUrls.push(publicUrl)
+      } catch (err) {
+        console.warn("Image upload failed:", err)
+        continue
+      }
+    }
+    
+    return imageUrls
   }
 
   const togglePayment = (id: string) => {
@@ -93,63 +119,43 @@ export default function NewListingPage() {
       } = await supabase.auth.getUser()
       if (!user) throw new Error("Not authenticated")
 
-      // Get user profile to check verification status
-      const { data: profile } = await supabase.from("profiles").select("is_verified, verification_status").eq("id", user.id).single()
-      
-      // Listing verification badge: Only verified users get "Verified" badge
-      const isUserVerified = profile?.is_verified || profile?.verification_status === "VERIFIED"
-
-      // Create the listing
-      // According to spec: Anyone can list, but only verified users get "Verified" badge
-      
-      // Convert images to base64 or prepare for upload
-      let imageData: any[] = []
-      if (imageFiles.length > 0 && !formData.is_tokenized) {
-        // For non-tokenized listings: store images as base64 in metadata
-        // (or upload to cloud storage and store URLs)
-        // For now, store metadata about images that can be uploaded later
-        imageData = imageFiles.map((f, i) => ({
-          name: f.name,
-          size: f.size,
-          type: f.type,
-          // Note: Actual base64 encoding should happen here if needed
-          // For MVP, we'll just store file metadata
-        }))
+      // Upload images to storage
+      let imageUrls: string[] = []
+      if (imageFiles.length > 0) {
+        imageUrls = await uploadImagesToStorage(user.id)
       }
-      
-      // Prepare listing data with optional swap fields (in case columns don't exist yet)
-      const listingData: any = {
+
+      // Prepare listing data
+      const listingData = {
         title: formData.title,
         description: formData.description,
         price: formData.price ? Number.parseFloat(formData.price) : null,
         category_id: formData.category_id || null,
         listing_type: formData.listing_type,
         is_tokenized: formData.is_tokenized,
-        is_verified: isUserVerified, // Only verified users get verified badge
-        images: imageData.length > 0 ? imageData : [], // Store image metadata instead of blob URLs
-        user_id: user.id,
-        metadata: {
-          currency: formData.currency,
-          payment_methods: selectedPayments,
-        },
+        images: imageUrls.length > 0 ? imageUrls : [],
+        payment_methods: selectedPayments,
+        currency: formData.currency,
+        swap_enabled: formData.swap_enabled,
+        accepted_swap_types: formData.accepted_swap_types.length > 0 ? formData.accepted_swap_types : null,
+        valuation_method: formData.swap_enabled ? formData.valuation_method : null,
+        minimum_reputation: formData.minimum_reputation || 0,
+        swap_verification_required: formData.swap_verification_required,
       }
 
-      // Only include swap fields if swap is enabled
-      if (formData.swap_enabled) {
-        listingData.swap_enabled = formData.swap_enabled
-        listingData.accepted_swap_types = formData.accepted_swap_types.length > 0 ? formData.accepted_swap_types : null
-        listingData.valuation_method = formData.valuation_method
-        listingData.minimum_reputation = formData.minimum_reputation || 0
-        listingData.swap_verification_required = formData.swap_verification_required
+      // Create listing via API
+      const response = await fetch('/api/listings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(listingData),
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || 'Failed to create listing')
       }
 
-      const { data: listing, error: listingError } = await supabase
-        .from("listings")
-        .insert(listingData)
-        .select()
-        .single()
-
-      if (listingError) throw listingError
+      const { data: listing } = await response.json()
 
       // If tokenization enabled, upload metadata and mint automatically
       if (formData.is_tokenized && imageFiles.length > 0) {
