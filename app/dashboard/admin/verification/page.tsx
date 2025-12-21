@@ -19,7 +19,7 @@ export default async function AdminVerificationPage() {
     redirect("/dashboard")
   }
 
-  // Get pending verification requests
+  // Get pending and in-review verification requests
   const { data: verificationRequests } = await supabase
     .from("verification_requests")
     .select(
@@ -28,8 +28,7 @@ export default async function AdminVerificationPage() {
       profiles:profiles!verification_requests_user_id_fkey(full_name, email, avatar_url)
     `,
     )
-    .in("status", ["pending", "in_review", "needs_update"])
-    .order("created_at", { ascending: true })
+    .order("created_at", { ascending: false })
 
   // Get stats
   const { count: pendingCount } = await supabase
@@ -37,11 +36,16 @@ export default async function AdminVerificationPage() {
     .select("*", { count: "exact", head: true })
     .eq("status", "pending")
 
+  const { count: inReviewCount } = await supabase
+    .from("verification_requests")
+    .select("*", { count: "exact", head: true })
+    .eq("status", "in_review")
+
   const { count: approvedToday } = await supabase
     .from("verification_requests")
     .select("*", { count: "exact", head: true })
     .eq("status", "approved")
-    .gte("reviewed_at", new Date().toISOString().split("T")[0])
+    .gte("reviewed_at", new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString())
 
   const { count: totalProcessed } = await supabase
     .from("verification_requests")

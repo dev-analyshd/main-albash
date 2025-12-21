@@ -16,17 +16,13 @@ export default async function VerificationPage() {
   // Get user profile and verification status
   const { data: profile } = await supabase.from("profiles").select("*").eq("id", user.id).single()
 
-  // If already verified, redirect to dashboard
-  if (profile?.verification_status === "VERIFIED" || profile?.is_verified) {
-    redirect("/dashboard")
-  }
-
-  // Check if there's a pending verification request
-  const { data: pendingRequest } = await supabase
+  // Check if there's any active verification request (pending, in_review, or needs_update)
+  // Allow users to reapply if request was rejected or needs update
+  const { data: activeRequest } = await supabase
     .from("verification_requests")
     .select("*")
     .eq("user_id", user.id)
-    .eq("status", "pending")
+    .in("status", ["pending", "in_review", "needs_update"])
     .maybeSingle()
 
   return (
@@ -35,7 +31,7 @@ export default async function VerificationPage() {
         <VerificationForm
           user={user}
           profile={profile}
-          pendingRequest={pendingRequest}
+          pendingRequest={activeRequest}
           verificationStatus={profile?.verification_status || "AUTHENTICATED_UNVERIFIED"}
         />
       </div>

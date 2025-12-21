@@ -468,10 +468,15 @@ function VerifierDashboard({ applications, stats, verifierId }) {
     const [isSubmitting, setIsSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [filterType, setFilterType] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
+    const [filterStatus, setFilterStatus] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("pending");
     const filteredApplications = applications.filter((app)=>{
         const matchesSearch = (app.form_data?.title || "").toString().toLowerCase().includes(searchQuery.toLowerCase()) || app.profiles?.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) || app.profiles?.email.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesType = filterType === "all" || app.verification_type === filterType;
-        return matchesSearch && matchesType;
+        const matchesStatus = filterStatus === "all" || filterStatus === "active" ? [
+            "pending",
+            "in_review"
+        ].includes(app.status) : app.status === filterStatus;
+        return matchesSearch && matchesType && matchesStatus;
     });
     const handleAction = async (status)=>{
         if (!selectedApp) return;
@@ -512,7 +517,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                         children: "Verification Dashboard"
                     }, void 0, false, {
                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                        lineNumber: 104,
+                        lineNumber: 106,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -520,13 +525,13 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                         children: "Review and process pending verification applications"
                     }, void 0, false, {
                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                        lineNumber: 105,
+                        lineNumber: 107,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                lineNumber: 103,
+                lineNumber: 105,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -542,12 +547,12 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                         className: "h-6 w-6 text-yellow-600"
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 115,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 112,
+                                    lineNumber: 114,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -557,7 +562,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                             children: "Pending Review"
                                         }, void 0, false, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 116,
+                                            lineNumber: 118,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -565,24 +570,24 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                             children: stats.pending
                                         }, void 0, false, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 117,
+                                            lineNumber: 119,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 115,
+                                    lineNumber: 117,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                            lineNumber: 111,
+                            lineNumber: 113,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                        lineNumber: 110,
+                        lineNumber: 112,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -595,12 +600,12 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                         className: "h-6 w-6 text-green-600"
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                        lineNumber: 124,
+                                        lineNumber: 126,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 123,
+                                    lineNumber: 125,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -610,7 +615,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                             children: "Approved Today"
                                         }, void 0, false, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 127,
+                                            lineNumber: 129,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -618,24 +623,24 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                             children: stats.approvedToday
                                         }, void 0, false, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 128,
+                                            lineNumber: 130,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 126,
+                                    lineNumber: 128,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                            lineNumber: 122,
+                            lineNumber: 124,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                        lineNumber: 121,
+                        lineNumber: 123,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -648,12 +653,12 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                         className: "h-6 w-6 text-blue-600"
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                        lineNumber: 135,
+                                        lineNumber: 137,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 136,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -663,7 +668,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                             children: "Total Processed"
                                         }, void 0, false, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 138,
+                                            lineNumber: 140,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -671,30 +676,30 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                             children: stats.totalProcessed
                                         }, void 0, false, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 139,
+                                            lineNumber: 141,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 137,
+                                    lineNumber: 139,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                            lineNumber: 133,
+                            lineNumber: 135,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                        lineNumber: 132,
+                        lineNumber: 134,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                lineNumber: 109,
+                lineNumber: 111,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -707,7 +712,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                 className: "absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
                             }, void 0, false, {
                                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                lineNumber: 148,
+                                lineNumber: 150,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -717,13 +722,93 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                 onChange: (e)=>setSearchQuery(e.target.value)
                             }, void 0, false, {
                                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                lineNumber: 149,
+                                lineNumber: 151,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                        lineNumber: 147,
+                        lineNumber: 149,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                        value: filterStatus,
+                        onValueChange: setFilterStatus,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                className: "w-40",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                    placeholder: "Filter by status"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                    lineNumber: 160,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                lineNumber: 159,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "active",
+                                        children: "Active (Pending & In Review)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                        lineNumber: 163,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "pending",
+                                        children: "Pending"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                        lineNumber: 164,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "in_review",
+                                        children: "In Review"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                        lineNumber: 165,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "approved",
+                                        children: "Approved"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                        lineNumber: 166,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "rejected",
+                                        children: "Rejected"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                        lineNumber: 167,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "all",
+                                        children: "All"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                        lineNumber: 168,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                lineNumber: 162,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                        lineNumber: 158,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -736,12 +821,12 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                     placeholder: "Filter by type"
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 158,
+                                    lineNumber: 173,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                lineNumber: 157,
+                                lineNumber: 172,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -751,7 +836,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                         children: "All Types"
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                        lineNumber: 161,
+                                        lineNumber: 176,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -759,7 +844,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                         children: "Builder"
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                        lineNumber: 162,
+                                        lineNumber: 177,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -767,7 +852,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                         children: "Institution"
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                        lineNumber: 163,
+                                        lineNumber: 178,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -775,7 +860,15 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                         children: "Business"
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                        lineNumber: 164,
+                                        lineNumber: 179,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "company",
+                                        children: "Company"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/verification/verifier-dashboard.tsx",
+                                        lineNumber: 180,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -783,25 +876,25 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                         children: "Organization"
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                        lineNumber: 165,
+                                        lineNumber: 181,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                lineNumber: 160,
+                                lineNumber: 175,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                        lineNumber: 156,
+                        lineNumber: 171,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                lineNumber: 146,
+                lineNumber: 148,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -815,14 +908,14 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                        lineNumber: 174,
+                                        lineNumber: 190,
                                         columnNumber: 13
                                     }, this),
                                     "Verification Queue"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                lineNumber: 173,
+                                lineNumber: 189,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
@@ -832,13 +925,13 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                lineNumber: 177,
+                                lineNumber: 193,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                        lineNumber: 172,
+                        lineNumber: 188,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -849,7 +942,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                     className: "h-12 w-12 text-green-500 mx-auto mb-4"
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 182,
+                                    lineNumber: 198,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -857,7 +950,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                     children: "All caught up!"
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 183,
+                                    lineNumber: 199,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -865,13 +958,13 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                     children: "No applications pending review"
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 184,
+                                    lineNumber: 200,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                            lineNumber: 181,
+                            lineNumber: 197,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "space-y-4",
@@ -899,20 +992,20 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                             src: app.profiles?.avatar_url || undefined
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 198,
+                                                            lineNumber: 214,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                             children: app.profiles?.full_name?.charAt(0) || "U"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 199,
+                                                            lineNumber: 215,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 197,
+                                                    lineNumber: 213,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -926,7 +1019,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                                     children: app.form_data?.title || "Verification Request"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                                    lineNumber: 203,
+                                                                    lineNumber: 219,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -934,13 +1027,13 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                                     children: app.status.replace("_", " ")
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                                    lineNumber: 206,
+                                                                    lineNumber: 222,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 202,
+                                                            lineNumber: 218,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -948,7 +1041,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                             children: app.profiles?.full_name || "Unknown User"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 208,
+                                                            lineNumber: 224,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -956,7 +1049,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                             children: app.form_data?.description || "No description provided"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 209,
+                                                            lineNumber: 225,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -969,14 +1062,14 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                                             className: "h-3 w-3"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                                            lineNumber: 214,
+                                                                            lineNumber: 230,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         new Date(app.submitted_at).toLocaleDateString()
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                                    lineNumber: 213,
+                                                                    lineNumber: 229,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -984,25 +1077,25 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                                     children: app.verification_type
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                                    lineNumber: 217,
+                                                                    lineNumber: 233,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 212,
+                                                            lineNumber: 228,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 201,
+                                                    lineNumber: 217,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 196,
+                                            lineNumber: 212,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1013,29 +1106,29 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                             children: "Review"
                                         }, void 0, false, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 221,
+                                            lineNumber: 237,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, app.id, true, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 189,
+                                    lineNumber: 205,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                            lineNumber: 187,
+                            lineNumber: 203,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                        lineNumber: 179,
+                        lineNumber: 195,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                lineNumber: 171,
+                lineNumber: 187,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -1050,20 +1143,20 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                     children: "Review Application"
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 235,
+                                    lineNumber: 251,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                     children: "Review the application details and take action"
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 236,
+                                    lineNumber: 252,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                            lineNumber: 234,
+                            lineNumber: 250,
                             columnNumber: 11
                         }, this),
                         selectedApp && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1079,20 +1172,20 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     src: selectedApp.profiles?.avatar_url || undefined
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 244,
+                                                    lineNumber: 260,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                     children: selectedApp.profiles?.full_name?.charAt(0) || "U"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 245,
+                                                    lineNumber: 261,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 243,
+                                            lineNumber: 259,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1102,7 +1195,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     children: selectedApp.profiles?.full_name || "Unknown User"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 248,
+                                                    lineNumber: 264,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1110,19 +1203,19 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     children: selectedApp.profiles?.email
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 249,
+                                                    lineNumber: 265,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 247,
+                                            lineNumber: 263,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 242,
+                                    lineNumber: 258,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1135,7 +1228,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     children: selectedApp.form_data?.title || "Verification Request"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 256,
+                                                    lineNumber: 272,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1143,13 +1236,13 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     children: selectedApp.form_data?.description || "No description provided"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 259,
+                                                    lineNumber: 275,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 255,
+                                            lineNumber: 271,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1162,7 +1255,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                             children: "Type:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 266,
+                                                            lineNumber: 282,
                                                             columnNumber: 21
                                                         }, this),
                                                         " ",
@@ -1171,13 +1264,13 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                             children: selectedApp.verification_type
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 267,
+                                                            lineNumber: 283,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 265,
+                                                    lineNumber: 281,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1187,7 +1280,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                             children: "Submitted:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 270,
+                                                            lineNumber: 286,
                                                             columnNumber: 21
                                                         }, this),
                                                         " ",
@@ -1195,13 +1288,13 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 269,
+                                                    lineNumber: 285,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 264,
+                                            lineNumber: 280,
                                             columnNumber: 17
                                         }, this),
                                         selectedApp.documents && selectedApp.documents.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1211,7 +1304,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     children: "Attached Documents:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 278,
+                                                    lineNumber: 294,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1223,7 +1316,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                                     className: "h-4 w-4 text-primary"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                                    lineNumber: 282,
+                                                                    lineNumber: 298,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1231,7 +1324,7 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                                     children: doc.name || `Document ${i + 1}`
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                                    lineNumber: 283,
+                                                                    lineNumber: 299,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1242,35 +1335,35 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                                         className: "h-3 w-3"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                                        lineNumber: 285,
+                                                                        lineNumber: 301,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                                    lineNumber: 284,
+                                                                    lineNumber: 300,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, i, true, {
                                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                            lineNumber: 281,
+                                                            lineNumber: 297,
                                                             columnNumber: 25
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 279,
+                                                    lineNumber: 295,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 277,
+                                            lineNumber: 293,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 254,
+                                    lineNumber: 270,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1283,14 +1376,14 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 297,
+                                                    lineNumber: 313,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Feedback / Notes"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 296,
+                                            lineNumber: 312,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1300,13 +1393,13 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                             onChange: (e)=>setFeedback(e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 300,
+                                            lineNumber: 316,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 295,
+                                    lineNumber: 311,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1322,14 +1415,14 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 316,
+                                                    lineNumber: 332,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Request Update"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 310,
+                                            lineNumber: 326,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1342,14 +1435,14 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 325,
+                                                    lineNumber: 341,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Reject"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 319,
+                                            lineNumber: 335,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1361,47 +1454,47 @@ function VerifierDashboard({ applications, stats, verifierId }) {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                                    lineNumber: 329,
+                                                    lineNumber: 345,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Approve"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 344,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                                    lineNumber: 309,
+                                    lineNumber: 325,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                            lineNumber: 240,
+                            lineNumber: 256,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                    lineNumber: 233,
+                    lineNumber: 249,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/verification/verifier-dashboard.tsx",
-                lineNumber: 232,
+                lineNumber: 248,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification/verifier-dashboard.tsx",
-        lineNumber: 102,
+        lineNumber: 104,
         columnNumber: 5
     }, this);
 }
-_s(VerifierDashboard, "VX7o7Kav6oR2qqj5jT+VwGiK7z0=", false, function() {
+_s(VerifierDashboard, "T611OZtxgvCBhqoIrmolj1pcj5k=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];

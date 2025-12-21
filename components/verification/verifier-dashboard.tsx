@@ -54,6 +54,7 @@ export function VerifierDashboard({ applications, stats, verifierId }: VerifierD
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [filterType, setFilterType] = useState<string>("all")
+  const [filterStatus, setFilterStatus] = useState<string>("pending")
 
   const filteredApplications = applications.filter((app) => {
     const matchesSearch =
@@ -64,7 +65,8 @@ export function VerifierDashboard({ applications, stats, verifierId }: VerifierD
       app.profiles?.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       app.profiles?.email.toLowerCase().includes(searchQuery.toLowerCase())
     const matchesType = filterType === "all" || app.verification_type === filterType
-    return matchesSearch && matchesType
+    const matchesStatus = filterStatus === "all" || filterStatus === "active" ? ["pending", "in_review"].includes(app.status) : app.status === filterStatus
+    return matchesSearch && matchesType && matchesStatus
   })
 
   const handleAction = async (status: ApplicationStatus) => {
@@ -153,6 +155,19 @@ export function VerifierDashboard({ applications, stats, verifierId }: VerifierD
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
+        <Select value={filterStatus} onValueChange={setFilterStatus}>
+          <SelectTrigger className="w-40">
+            <SelectValue placeholder="Filter by status" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="active">Active (Pending & In Review)</SelectItem>
+            <SelectItem value="pending">Pending</SelectItem>
+            <SelectItem value="in_review">In Review</SelectItem>
+            <SelectItem value="approved">Approved</SelectItem>
+            <SelectItem value="rejected">Rejected</SelectItem>
+            <SelectItem value="all">All</SelectItem>
+          </SelectContent>
+        </Select>
         <Select value={filterType} onValueChange={setFilterType}>
           <SelectTrigger className="w-40">
             <SelectValue placeholder="Filter by type" />
@@ -162,6 +177,7 @@ export function VerifierDashboard({ applications, stats, verifierId }: VerifierD
             <SelectItem value="builder">Builder</SelectItem>
             <SelectItem value="institution">Institution</SelectItem>
             <SelectItem value="business">Business</SelectItem>
+            <SelectItem value="company">Company</SelectItem>
             <SelectItem value="organization">Organization</SelectItem>
           </SelectContent>
         </Select>

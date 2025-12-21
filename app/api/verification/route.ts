@@ -14,16 +14,20 @@ export async function POST(request: Request) {
 
     const body = await request.json()
 
-    // Check if user already has a pending request
+    // Check if user already has an active request (pending or in_review)
+    // Users can reapply if previous request was rejected or needs update
     const { data: existingRequest } = await supabase
       .from("verification_requests")
-      .select("id")
+      .select("id, status")
       .eq("user_id", user.id)
-      .eq("status", "pending")
+      .in("status", ["pending", "in_review"])
       .maybeSingle()
 
     if (existingRequest) {
-      return NextResponse.json({ error: "You already have a pending verification request" }, { status: 400 })
+      return NextResponse.json(
+        { error: "You already have an active verification request under review" },
+        { status: 400 },
+      )
     }
 
     // Create verification request
@@ -40,6 +44,15 @@ export async function POST(request: Request) {
       .single()
 
     if (error) throw error
+
+    // Update user profile status to VERIFICATION_PENDING
+    await supabase
+      .from("profiles")
+      .update({
+        verification_status: "VERIFICATION_PENDING",
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", user.id)
 
     return NextResponse.json({ data })
   } catch (error) {
