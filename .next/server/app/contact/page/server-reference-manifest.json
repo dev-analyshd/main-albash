@@ -1,0 +1,20 @@
+{
+  "node": {
+    "60e81680b827f789732f1f4574d85fbf2a13ab8ba5": {
+      "workers": {
+        "app/contact/page": {
+          "moduleId": 887563,
+          "async": false,
+          "exportedName": "submitContactForm",
+          "filename": "app/contact/actions.ts"
+        }
+      },
+      "layer": {
+        "app/contact/page": "action-browser"
+      },
+      "exportedName": "submitContactForm",
+      "filename": "app/contact/actions.ts"
+    }
+  },
+  "edge": {}
+}

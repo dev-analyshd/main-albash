@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/community/layout,_N_T_/community/collaboration/layout,_N_T_/community/collaboration/create/layout,_N_T_/community/collaboration/create/page,_N_T_/community/collaboration/create"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/community/collaboration/create/__PAGE__",
+    "/community/collaboration/create",
+    "/community/collaboration",
+    "/community",
+    "/_index",
+    "/_head"
+  ]
+}

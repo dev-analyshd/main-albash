@@ -1,0 +1,4 @@
+1:"$Sreact.fragment"
+2:I[339756,["/_next/static/chunks/38a9ff819bd96aff.js","/_next/static/chunks/30f5416b4e75e41f.js","/_next/static/chunks/3faf9ba6ca9bc03e.js","/_next/static/chunks/d80b3790a119a285.js","/_next/static/chunks/2caa80e7d52f0ca8.js","/_next/static/chunks/4b59b604c910ef0a.js","/_next/static/chunks/bedc1af494f6a1e0.js","/_next/static/chunks/c401a5157bed053b.js"],"default"]
+3:I[837457,["/_next/static/chunks/38a9ff819bd96aff.js","/_next/static/chunks/30f5416b4e75e41f.js","/_next/static/chunks/3faf9ba6ca9bc03e.js","/_next/static/chunks/d80b3790a119a285.js","/_next/static/chunks/2caa80e7d52f0ca8.js","/_next/static/chunks/4b59b604c910ef0a.js","/_next/static/chunks/bedc1af494f6a1e0.js","/_next/static/chunks/c401a5157bed053b.js"],"default"]
+0:{"buildId":"keqqoxRWz1-_TlcBItNAV","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}

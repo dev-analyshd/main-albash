@@ -1,0 +1,4 @@
+// Backup check for ethers dependency
+// We need to add ethers.js for signature verification
+// Run: npm install ethers
+

@@ -1,0 +1,3 @@
+{
+  "/api/swaps/[id]/counter/route": "app/api/swaps/[id]/counter/route.js"
+}

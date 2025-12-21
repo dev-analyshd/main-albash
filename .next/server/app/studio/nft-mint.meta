@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/studio/layout,_N_T_/studio/nft-mint/layout,_N_T_/studio/nft-mint/page,_N_T_/studio/nft-mint"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/studio/nft-mint/__PAGE__",
+    "/studio/nft-mint",
+    "/studio",
+    "/_index",
+    "/_head"
+  ]
+}

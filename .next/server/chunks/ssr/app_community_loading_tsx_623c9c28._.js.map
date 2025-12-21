@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../app/community/loading.tsx"],"sourcesContent":["export default function Loading() {\n  return null\n}\n"],"names":[],"mappings":"wCAAe,SAAS,IACtB,OAAO,IACT"}

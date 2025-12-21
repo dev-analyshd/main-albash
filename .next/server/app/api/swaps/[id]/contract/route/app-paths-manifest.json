@@ -1,0 +1,3 @@
+{
+  "/api/swaps/[id]/contract/route": "app/api/swaps/[id]/contract/route.js"
+}

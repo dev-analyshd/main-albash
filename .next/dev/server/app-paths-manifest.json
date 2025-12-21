@@ -1,0 +1,6 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/community/discussions/page": "app/community/discussions/page.js",
+  "/dashboard/builder/page": "app/dashboard/builder/page.js",
+  "/page": "app/page.js"
+}

@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/departments/layout,_N_T_/departments/institution/layout,_N_T_/departments/institution/page,_N_T_/departments/institution"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/departments/institution/__PAGE__",
+    "/departments/institution",
+    "/departments",
+    "/_index",
+    "/_head"
+  ]
+}

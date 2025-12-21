@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/programs/layout,_N_T_/programs/bootcamps/layout,_N_T_/programs/bootcamps/page,_N_T_/programs/bootcamps"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/programs/bootcamps/__PAGE__",
+    "/programs/bootcamps",
+    "/programs",
+    "/_index",
+    "/_head"
+  ]
+}

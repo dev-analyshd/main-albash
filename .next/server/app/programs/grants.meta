@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/programs/layout,_N_T_/programs/grants/layout,_N_T_/programs/grants/page,_N_T_/programs/grants"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/programs/grants/__PAGE__",
+    "/programs/grants",
+    "/programs",
+    "/_index",
+    "/_head"
+  ]
+}
