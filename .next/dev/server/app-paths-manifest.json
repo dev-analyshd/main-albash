@@ -1,14 +1,24 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/api/categories/route": "app/api/categories/route.js",
+  "/api/listings/route": "app/api/listings/route.js",
+  "/api/verification/route": "app/api/verification/route.js",
+  "/apply/builder/page": "app/apply/builder/page.js",
+  "/auth/login/page": "app/auth/login/page.js",
   "/community/discussions/page": "app/community/discussions/page.js",
+  "/dashboard/admin/listings/page": "app/dashboard/admin/listings/page.js",
   "/dashboard/admin/page": "app/dashboard/admin/page.js",
+  "/dashboard/admin/users/page": "app/dashboard/admin/users/page.js",
   "/dashboard/admin/verification/page": "app/dashboard/admin/verification/page.js",
   "/dashboard/builder/page": "app/dashboard/builder/page.js",
   "/dashboard/listings/new/page": "app/dashboard/listings/new/page.js",
+  "/dashboard/listings/page": "app/dashboard/listings/page.js",
+  "/dashboard/messages/page": "app/dashboard/messages/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
   "/marketplace/builders/page": "app/marketplace/builders/page.js",
   "/marketplace/institutions/page": "app/marketplace/institutions/page.js",
   "/marketplace/listing/[id]/page": "app/marketplace/listing/[id]/page.js",
   "/marketplace/page": "app/marketplace/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/verification/page": "app/verification/page.js"
 }

@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server"
 import { NextResponse } from "next/server"
 import { requireAdminOrVerifier } from "@/lib/middleware/admin"
+import { emailService } from "@/lib/email-service"
 import type { NextRequest } from "next/server"
 
 export async function PATCH(request: NextRequest) {
@@ -81,6 +82,26 @@ export async function PATCH(request: NextRequest) {
         user_id: verificationRequest.user_id,
         points: 100,
       })
+
+      // Send email notification to user
+      try {
+        const userProfile = await supabase
+          .from("profiles")
+          .select("email, full_name")
+          .eq("id", verificationRequest.user_id)
+          .single()
+
+        if (userProfile.data?.email) {
+          await emailService.sendVerificationApproved(
+            userProfile.data.email,
+            userProfile.data.full_name || "User",
+            id
+          )
+        }
+      } catch (emailError) {
+        console.warn("Failed to send verification approved email:", emailError)
+        // Don't fail the entire request if email fails
+      }
     } else if (status === "rejected") {
       // Reset to unverified status
       await supabase
