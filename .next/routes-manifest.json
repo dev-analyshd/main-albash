@@ -317,6 +317,12 @@
       "namedRegex": "^/api/listings(?:/)?$"
     },
     {
+      "page": "/api/listings/search",
+      "regex": "^/api/listings/search(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/listings/search(?:/)?$"
+    },
+    {
       "page": "/api/nft/confirm",
       "regex": "^/api/nft/confirm(?:/)?$",
       "routeKeys": {},
@@ -327,6 +333,12 @@
       "regex": "^/api/nft/mint(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/nft/mint(?:/)?$"
+    },
+    {
+      "page": "/api/notifications/send-email",
+      "regex": "^/api/notifications/send\\-email(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/notifications/send\\-email(?:/)?$"
     },
     {
       "page": "/api/payments/methods",
@@ -369,6 +381,12 @@
       "regex": "^/api/swaps(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/swaps(?:/)?$"
+    },
+    {
+      "page": "/api/users/search",
+      "regex": "^/api/users/search(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/users/search(?:/)?$"
     },
     {
       "page": "/api/verification",

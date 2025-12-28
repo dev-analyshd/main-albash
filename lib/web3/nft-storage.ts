@@ -1,17 +1,23 @@
 /**
  * NFT.Storage Integration
  * Handles metadata and media storage for NFT minting
+ * Lazily loaded to avoid initialization errors during build
  */
 
 import { NFTStorage } from 'nft.storage'
 
-const NFT_STORAGE_TOKEN = process.env.NEXT_PUBLIC_NFT_STORAGE_TOKEN
+let client: NFTStorage | null = null
 
-if (!NFT_STORAGE_TOKEN) {
-  throw new Error('NFT_STORAGE_TOKEN environment variable is not set')
+function getNFTStorageClient(): NFTStorage {
+  if (!client) {
+    const token = process.env.NEXT_PUBLIC_NFT_STORAGE_TOKEN
+    if (!token) {
+      throw new Error('NEXT_PUBLIC_NFT_STORAGE_TOKEN environment variable is not set')
+    }
+    client = new NFTStorage({ token })
+  }
+  return client
 }
-
-const client = new NFTStorage({ token: NFT_STORAGE_TOKEN })
 
 export interface NFTMetadata {
   name: string
@@ -31,9 +37,7 @@ export interface NFTMetadata {
  */
 export async function storeNFTMetadata(metadata: NFTMetadata): Promise<string> {
   try {
-    if (!client) {
-      throw new Error('NFT Storage client not initialized')
-    }
+    const client = getNFTStorageClient()
 
       // Store using NFT.Storage which handles both metadata and media
     // Cast to any to satisfy nft.storage client types when image may be a string URL
@@ -58,9 +62,7 @@ export async function storeNFTMetadata(metadata: NFTMetadata): Promise<string> {
  */
 export async function storeMetadata(metadata: Record<string, any>): Promise<string> {
   try {
-    if (!client) {
-      throw new Error('NFT Storage client not initialized')
-    }
+    const client = getNFTStorageClient()
 
     // Store raw JSON blob
     const blob = new Blob([JSON.stringify(metadata)], { type: 'application/json' })
@@ -89,9 +91,7 @@ export async function storeMetadata(metadata: Record<string, any>): Promise<stri
  */
 export async function uploadFile(file: File): Promise<string> {
   try {
-    if (!client) {
-      throw new Error('NFT Storage client not initialized')
-    }
+    const client = getNFTStorageClient()
 
     const stored = await (client as any).store({
       name: file.name,

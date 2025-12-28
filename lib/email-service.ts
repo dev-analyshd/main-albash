@@ -4,7 +4,21 @@
 import { Resend } from "resend";
 import { emailTemplates } from "@/lib/email-templates";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend lazily - only when email sending is needed
+let resendInstance: Resend | null = null;
+
+function getResend(): Resend {
+  if (!resendInstance) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error(
+        "RESEND_API_KEY environment variable is required for email notifications"
+      );
+    }
+    resendInstance = new Resend(apiKey);
+  }
+  return resendInstance;
+}
 
 export const emailService = {
   /**
@@ -16,6 +30,7 @@ export const emailService = {
     verificationId: string
   ) {
     try {
+      const resend = getResend();
       const template = emailTemplates.verificationApproved(userName, verificationId);
       const result = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || "noreply@albash.com",
@@ -42,6 +57,7 @@ export const emailService = {
     itemDetails: string
   ) {
     try {
+      const resend = getResend();
       const template = emailTemplates.swapAccepted(buyerName, sellerName, swapId, itemDetails);
       const result = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || "noreply@albash.com",
@@ -67,6 +83,7 @@ export const emailService = {
     disputer: string
   ) {
     try {
+      const resend = getResend();
       const template = emailTemplates.swapDisputed(recipientName, swapId, disputer);
       const result = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || "noreply@albash.com",
@@ -92,6 +109,7 @@ export const emailService = {
     resolution: "completed" | "refunded"
   ) {
     try {
+      const resend = getResend();
       const template = emailTemplates.disputeResolved(recipientName, swapId, resolution);
       const result = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || "noreply@albash.com",
@@ -116,6 +134,7 @@ export const emailService = {
     swapId: string
   ) {
     try {
+      const resend = getResend();
       const template = emailTemplates.swapRefundedOnApproval(recipientName, swapId);
       const result = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || "noreply@albash.com",
