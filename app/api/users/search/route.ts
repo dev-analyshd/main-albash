@@ -1,12 +1,15 @@
 import { createServerClient } from "@supabase/ssr"
 import { NextRequest, NextResponse } from "next/server"
+import { withRateLimitAndSecurity } from "@/lib/api-security"
+import { sanitizeQueryParams } from "@/lib/middleware/security"
 
 /**
  * GET /api/users/search
  * Search and filter users by name, email, role, department, verification status
  * Query params: q (search query), role, department, verified, limit, offset
+ * Rate limited: 50 requests per minute (search preset)
  */
-export async function GET(request: NextRequest) {
+async function handler(request: NextRequest) {
   try {
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -21,12 +24,33 @@ export async function GET(request: NextRequest) {
     )
 
     const searchParams = request.nextUrl.searchParams
-    const q = searchParams.get("q")?.toLowerCase() || ""
-    const role = searchParams.get("role")
-    const department = searchParams.get("department")
-    const verified = searchParams.get("verified")
-    const limit = parseInt(searchParams.get("limit") || "20")
-    const offset = parseInt(searchParams.get("offset") || "0")
+    
+    // Sanitize input parameters
+    const params = sanitizeQueryParams({
+      q: searchParams.get("q")?.toLowerCase() || "",
+      role: searchParams.get("role") || null,
+      department: searchParams.get("department") || null,
+      verified: searchParams.get("verified") || null,
+      limit: parseInt(searchParams.get("limit") || "20"),
+      offset: parseInt(searchParams.get("offset") || "0"),
+    })
+
+    const { q, role, department, verified, limit, offset } = params
+
+    // Validate limit and offset
+    if (limit < 1 || limit > 100) {
+      return NextResponse.json(
+        { error: "Limit must be between 1 and 100" },
+        { status: 400 }
+      )
+    }
+
+    if (offset < 0) {
+      return NextResponse.json(
+        { error: "Offset must be >= 0" },
+        { status: 400 }
+      )
+    }
 
     // Start building query
     let query = supabase
@@ -79,3 +103,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Search failed" }, { status: 500 })
   }
 }
+
+// Export with rate limiting and security middleware (50 req/min for search)
+export const GET = withRateLimitAndSecurity(handler, { preset: "search" })

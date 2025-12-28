@@ -1,12 +1,15 @@
 import { createServerClient } from "@supabase/ssr"
 import { NextRequest, NextResponse } from "next/server"
+import { withRateLimitAndSecurity } from "@/lib/api-security"
+import { sanitizeQueryParams } from "@/lib/middleware/security"
 
 /**
  * GET /api/listings/search
  * Search and filter listings by title, category, condition, price range, seller
  * Query params: q (search query), category, condition, minPrice, maxPrice, sellerId, limit, offset
+ * Rate limited: 50 requests per minute (search preset)
  */
-export async function GET(request: NextRequest) {
+async function handler(request: NextRequest) {
   try {
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -21,14 +24,50 @@ export async function GET(request: NextRequest) {
     )
 
     const searchParams = request.nextUrl.searchParams
-    const q = searchParams.get("q")?.toLowerCase() || ""
-    const category = searchParams.get("category")
-    const condition = searchParams.get("condition")
-    const minPrice = searchParams.get("minPrice") ? parseFloat(searchParams.get("minPrice")!) : null
-    const maxPrice = searchParams.get("maxPrice") ? parseFloat(searchParams.get("maxPrice")!) : null
-    const sellerId = searchParams.get("sellerId")
-    const limit = parseInt(searchParams.get("limit") || "20")
-    const offset = parseInt(searchParams.get("offset") || "0")
+    
+    // Sanitize input parameters
+    const params = sanitizeQueryParams({
+      q: searchParams.get("q")?.toLowerCase() || "",
+      category: searchParams.get("category") || null,
+      condition: searchParams.get("condition") || null,
+      minPrice: searchParams.get("minPrice") ? parseFloat(searchParams.get("minPrice")!) : null,
+      maxPrice: searchParams.get("maxPrice") ? parseFloat(searchParams.get("maxPrice")!) : null,
+      sellerId: searchParams.get("sellerId") || null,
+      limit: parseInt(searchParams.get("limit") || "20"),
+      offset: parseInt(searchParams.get("offset") || "0"),
+    })
+
+    const { q, category, condition, minPrice, maxPrice, sellerId, limit, offset } = params
+
+    // Validate limit and offset
+    if (limit < 1 || limit > 100) {
+      return NextResponse.json(
+        { error: "Limit must be between 1 and 100" },
+        { status: 400 }
+      )
+    }
+
+    if (offset < 0) {
+      return NextResponse.json(
+        { error: "Offset must be >= 0" },
+        { status: 400 }
+      )
+    }
+
+    // Validate price filters
+    if (minPrice !== null && minPrice < 0) {
+      return NextResponse.json(
+        { error: "minPrice must be >= 0" },
+        { status: 400 }
+      )
+    }
+
+    if (maxPrice !== null && maxPrice < 0) {
+      return NextResponse.json(
+        { error: "maxPrice must be >= 0" },
+        { status: 400 }
+      )
+    }
 
     // Start building query
     let query = supabase
@@ -102,3 +141,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Search failed" }, { status: 500 })
   }
 }
+
+// Export with rate limiting and security middleware (50 req/min for search)
+export const GET = withRateLimitAndSecurity(handler, { preset: "search" })
