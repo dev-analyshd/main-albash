@@ -1334,6 +1334,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/api/listings/search/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/listings/search">> = Specific
+  const handler = {} as typeof import("../../../app/api/listings/search/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/api/nft/confirm/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/nft/confirm">> = Specific
@@ -1437,6 +1446,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/swaps">> = Specific
   const handler = {} as typeof import("../../../app/api/swaps/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/api/users/search/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/users/search">> = Specific
+  const handler = {} as typeof import("../../../app/api/users/search/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

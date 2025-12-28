@@ -43,19 +43,38 @@ export function UserManagement({ users: initialUsers }: UserManagementProps) {
   const [selectedUser, setSelectedUser] = useState<any>(null)
   const [actionDialog, setActionDialog] = useState<{ type: string; user: any } | null>(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
+  const [pagination, setPagination] = useState({ offset: 0, limit: 20, total: 0 })
 
-  const filteredUsers = users.filter((user) => {
-    const matchesSearch =
-      user.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      user.email?.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesRole = filterRole === "all" || user.role === filterRole
-    const matchesStatus =
-      filterStatus === "all" ||
-      (filterStatus === "verified" && user.is_verified) ||
-      (filterStatus === "unverified" && !user.is_verified) ||
-      (filterStatus === "suspended" && user.is_suspended)
-    return matchesSearch && matchesRole && matchesStatus
-  })
+  const performSearch = async () => {
+    if (!searchQuery.trim() && filterRole === "all" && filterStatus === "all") {
+      setUsers(initialUsers)
+      return
+    }
+
+    setIsSearching(true)
+    try {
+      const params = new URLSearchParams()
+      if (searchQuery) params.append("q", searchQuery)
+      if (filterRole !== "all") params.append("role", filterRole)
+      if (filterStatus === "verified") params.append("verified", "true")
+      if (filterStatus === "unverified") params.append("verified", "false")
+
+      const response = await fetch(`/api/users/search?${params}`)
+      const result = await response.json()
+
+      if (result.data) {
+        setUsers(result.data)
+        setPagination(result.pagination)
+      }
+    } catch (error) {
+      console.error("Search error:", error)
+    } finally {
+      setIsSearching(false)
+    }
+  }
+
+  const filteredUsers = users
 
   const handleAction = async (action: string, user: any) => {
     setIsLoading(true)
@@ -165,8 +184,12 @@ export function UserManagement({ users: initialUsers }: UserManagementProps) {
                 className="pl-10"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && performSearch()}
               />
             </div>
+            <Button onClick={performSearch} disabled={isSearching} variant="outline">
+              {isSearching ? "Searching..." : "Search"}
+            </Button>
             <Select value={filterRole} onValueChange={setFilterRole}>
               <SelectTrigger className="w-40">
                 <SelectValue placeholder="Role" />
